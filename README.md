@@ -1,1 +1,1 @@
-# https://github.com/devbugger404/form_suscribe.git 
+# https://devbugger404.github.io/form_suscribe/
