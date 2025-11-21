@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Suscríbete - 15% de descuento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <main class="container">
+        <section class="card" id="card">
+            <div class="promo">
+                <h1>Suscríbete y recibe <span>15% OFF</span></h1>
+                <p>Únete a nuestra comunidad y recibe novedades y ofertas exclusivas.</p>
+            </div>
+
+            <form id="subscribeForm" class="form">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required>
+
+                <label for="name">Nombre</label>
+                <input id="name" name="name" type="text" placeholder="Tu nombre" required>
+
+                <fieldset class="interests">
+                    <legend>Qué te interesa</legend>
+                    <label><input type="checkbox" name="interests" value="Calzado deportivo"> Calzado deportivo</label>
+                    <label><input type="checkbox" name="interests" value="Ropa hombre"> Ropa hombre</label>
+                    <label><input type="checkbox" name="interests" value="Ropa mujer"> Ropa mujer</label>
+                    <label><input type="checkbox" name="interests" value="Accesorios"> Accesorios</label>
+                </fieldset>
+
+                <label class="privacy"><input id="privacy" name="privacy" type="checkbox" required> Acepto la política
+                    de privacidad</label>
+
+                <button type="submit" class="btn">Suscribirme</button>
+            </form>
+
+            <div id="result" class="result hidden" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <div id="confetti-root" class="confetti-root" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

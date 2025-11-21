@@ -1,0 +1,240 @@
+:root {
+    --bg-1: #1f4068;
+    --bg-2: #11998e;
+    --card: #ffffffee;
+    --accent: #ff6b6b;
+    --muted: #6b7280;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(120deg, var(--bg-1), var(--bg-2));
+    background-size: 200% 200%;
+    animation: bg-shift 14s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #0b1020;
+    overflow: hidden;
+}
+
+@keyframes bg-shift {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 50% 60%
+    }
+
+    100% {
+        background-position: 100% 50%
+    }
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.05), transparent 10%),
+        radial-gradient(circle at 90% 90%, rgba(0, 0, 0, 0.08), transparent 10%);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 980px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.card {
+    width: 560px;
+    max-width: 94%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 10px 40px rgba(8, 10, 25, 0.32);
+    backdrop-filter: blur(6px);
+    transform-origin: center;
+    animation: card-pop .7s cubic-bezier(.2, .9, .3, 1);
+}
+
+@keyframes card-pop {
+    from {
+        transform: translateY(20px) scale(.98);
+        opacity: 0
+    }
+
+    to {
+        transform: none;
+        opacity: 1
+    }
+}
+
+.promo h1 {
+    margin: 0 0 6px;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px
+}
+
+.promo h1 span {
+    color: var(--accent)
+}
+
+.promo p {
+    margin: 0 0 18px;
+    color: var(--muted)
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start
+}
+
+.form label {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.form input[type="email"],
+.form input[type="text"] {
+    grid-column: span 2;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(11, 16, 32, 0.06);
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow .15s, border-color .15s;
+}
+
+.form input:focus {
+    box-shadow: 0 6px 18px rgba(17, 153, 142, 0.08);
+    border-color: rgba(17, 153, 142, 0.45)
+}
+
+.interests {
+    grid-column: span 2;
+    border: none;
+    padding: 6px 0;
+    margin: 4px 0
+}
+
+.interests legend {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #0b1020
+}
+
+.interests label {
+    display: block;
+    margin: 6px 0;
+    color: var(--muted);
+    font-size: 0.95rem
+}
+
+.privacy {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.95rem
+}
+
+.btn {
+    grid-column: span 2;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(90deg, var(--accent), #ff8e72);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform .12s ease, box-shadow .12s
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.18)
+}
+
+.result {
+    grid-column: span 2;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #0b1220;
+    color: #f8fafc
+}
+
+.hidden {
+    display: none
+}
+
+/* Result content */
+.result .title {
+    font-weight: 700;
+    margin-bottom: 8px
+}
+
+.result .item {
+    font-size: 0.95rem;
+    color: #e6eef0;
+    margin: 6px 0
+}
+
+/* confetti */
+.confetti-root {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 14px;
+    opacity: 0.95;
+    border-radius: 2px;
+    transform-origin: center;
+    animation: confetti-drop 1.6s linear forwards;
+}
+
+@keyframes confetti-drop {
+    to {
+        transform: translateY(110vh) rotate(600deg);
+        opacity: 0
+    }
+}
+
+/* Responsive */
+@media (max-width:600px) {
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .form input[type="email"],
+    .form input[type="text"] {
+        grid-column: span 1
+    }
+
+    .btn {
+        grid-column: span 1
+    }
+}
